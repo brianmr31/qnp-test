@@ -35,13 +35,18 @@ public class RateLimitFilter implements Filter{
         if( count < LIMIT_RATE ){
             tmp = this.rateLimitService.save( reqser.getRequestURI() );
             fc.doFilter(reqser, resser); // di Proses
+
+            if( tmp != null && tmp.getUrl() != null  ){
+                this.rateLimitService.del( tmp.getId() );
+            }
         } else {
+            resser.reset();
             resser.setStatus( 429 );
-            fc.doFilter(reqser, resser); // di Proses
+            resser.setContentType("application/json");
+            resser.setCharacterEncoding("UTF-8");
+            resser.getWriter().write("{ \"message\": 429 } ");
+            return ;
         }
-        if( tmp != null || tmp.getUrl() != null  ){
-            this.rateLimitService.del( tmp.getId() );
-        }
-        System.out.println( "res "+reqser.getContentType() );
+        
     }     
 }
