@@ -1,4 +1,4 @@
-package com.example.qnp.Entities;
+package com.example.qnp.entities;
 
 import java.io.Serializable;
 
@@ -15,9 +15,10 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-public class GeoEntity implements Serializable {
+public class CompanyEntity  implements Serializable {
     private static final long serialVersionUID = 1L;
-    
+
+
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(
@@ -25,9 +26,7 @@ public class GeoEntity implements Serializable {
         strategy = "org.hibernate.id.UUIDGenerator"
     )
     private String id;
-
-    private String lat;
-    private String lng;
-
-
+    private String name;
+    private String catchPhrase;
+    private String bs;
 }

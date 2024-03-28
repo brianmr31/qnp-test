@@ -1,4 +1,4 @@
-package com.example.qnp;
+package com.example.qnp.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.qnp.Entities.UserEntity;
+import com.example.qnp.Message;
+import com.example.qnp.entities.UserEntity;
 
 @RestController
 public class UserController {
@@ -55,5 +56,10 @@ public class UserController {
     @GetMapping("/user/init")
     public Message init(){
         return this.userService.init();
+    }
+
+    @GetMapping("/user/lemot")
+    public Message lemot(){
+        return this.userService.lemot();
     }
 }

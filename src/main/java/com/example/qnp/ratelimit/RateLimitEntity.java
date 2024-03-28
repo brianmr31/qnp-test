@@ -1,4 +1,6 @@
-package com.example.qnp.Entities;
+package com.example.qnp.ratelimit;
+
+import java.util.Date;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -13,8 +15,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-public class PostEntity {
-
+public class RateLimitEntity {
+    
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(
@@ -22,6 +24,12 @@ public class PostEntity {
         strategy = "org.hibernate.id.UUIDGenerator"
     )
     private String id;
-    private String title;
-    private String body;
+
+    private String url;
+    private Date start;
+
+    public RateLimitEntity(String requestURI) {
+        this.url = requestURI;
+        this.start = new Date();
+    }
 }

@@ -1,4 +1,4 @@
-package com.example.qnp;
+package com.example.qnp.user;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.example.qnp.Entities.UserEntity;
+import com.example.qnp.entities.UserEntity;
 
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity, String>{

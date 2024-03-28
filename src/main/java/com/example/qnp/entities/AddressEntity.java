@@ -1,4 +1,4 @@
-package com.example.qnp.Entities;
+package com.example.qnp.entities;
 
 import java.io.Serializable;
 

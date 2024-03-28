@@ -1,6 +1,4 @@
-package com.example.qnp.Entities;
-
-import java.io.Serializable;
+package com.example.qnp.entities;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -15,9 +13,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-public class CompanyEntity  implements Serializable {
-    private static final long serialVersionUID = 1L;
-
+public class PostEntity {
 
     @Id
     @GeneratedValue(generator = "UUID")
@@ -26,7 +22,6 @@ public class CompanyEntity  implements Serializable {
         strategy = "org.hibernate.id.UUIDGenerator"
     )
     private String id;
-    private String name;
-    private String catchPhrase;
-    private String bs;
+    private String title;
+    private String body;
 }

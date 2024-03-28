@@ -1,4 +1,4 @@
-package com.example.qnp;
+package com.example.qnp.post;
 
 import java.util.Arrays;
 
@@ -12,7 +12,8 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.example.qnp.Entities.PostEntity;
+import com.example.qnp.Message;
+import com.example.qnp.entities.PostEntity;
 
 @Service
 public class PostService {

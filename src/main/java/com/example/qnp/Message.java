@@ -1,6 +1,6 @@
 package com.example.qnp;
 
-import com.example.qnp.Entities.UserEntity;
+import com.example.qnp.entities.UserEntity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

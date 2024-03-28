@@ -1,21 +1,15 @@
-package com.example.qnp;
-
-import java.util.Arrays;
+package com.example.qnp.post;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.qnp.Entities.PostEntity;
-import com.example.qnp.Entities.UserEntity;
+import com.example.qnp.Message;
+import com.example.qnp.entities.PostEntity;
 
 @RestController
 public class PostController {

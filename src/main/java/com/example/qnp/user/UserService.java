@@ -1,4 +1,4 @@
-package com.example.qnp;
+package com.example.qnp.user;
 
 import java.util.Arrays;
 
@@ -12,7 +12,8 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.example.qnp.Entities.UserEntity;
+import com.example.qnp.Message;
+import com.example.qnp.entities.UserEntity;
 
 @Service
 public class UserService {
@@ -51,6 +52,15 @@ public class UserService {
 
         this.userRepository.saveAll( Arrays.asList(datas) );
         return new Message("ok - count "+datas.length);
+    }
+
+    public Message lemot() {
+        try {
+            Thread.sleep(20000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return new Message("lemot banget");
     }
 
 }
