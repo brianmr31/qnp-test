@@ -9,6 +9,16 @@
 		{
 			"name": "listUser",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJicmlhbkBnbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJicmlhbkBnbWFpbC5jb20iLCJleHAiOjE5Mjc2NDI3NzB9.C2yojWpo3FLWpQmGyof7tuvMwSJxmypunYjhL_sM42I",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -166,6 +176,64 @@
 					"path": [
 						"user",
 						"lemot"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"brian\",\n    \"password\": \"bebas\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/rest/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Not Permited",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJicmlhbkBnbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJicmlhbkBnbWFpbC5jb20iLCJleHAiOjE5Mjc2NDI3NzB9.C2yojWpo3FLWpQmGyof7tuvMwSJxmypunYjhL_sM42I",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/user/notpermited",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"notpermited"
 					]
 				}
 			},

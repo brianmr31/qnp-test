@@ -63,4 +63,8 @@ public class UserService {
         return new Message("lemot banget");
     }
 
+    public UserEntity findByEmail(String email) {
+        return new UserEntity("brian@gmail.com");
+    }
+
 }

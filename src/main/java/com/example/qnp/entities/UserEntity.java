@@ -43,4 +43,8 @@ public class UserEntity implements Serializable {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "company", referencedColumnName = "id")
     private CompanyEntity company;
+
+    public UserEntity( String email ){
+        this.email = email;
+    }    
 }
