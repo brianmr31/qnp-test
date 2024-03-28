@@ -1,7 +1,10 @@
 # qnp-test
 test di qnp
 
-postmant terlampir
+run project 
+./mvnw spring-boot:run
+
+postmant terlampir di qnp.postman_collection.json
 
 1. code ada di package user 
   - di controller UserController method nya list, add, del, get
