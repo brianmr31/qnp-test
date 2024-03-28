@@ -18,6 +18,8 @@ import jakarta.servlet.http.HttpServletResponse;
 @Order(1)
 public class RateLimitFilter implements Filter{
 
+    private static final int LIMIT_RATE = 10;
+
     @Autowired
     private RateLimitService rateLimitService;
 
@@ -30,7 +32,7 @@ public class RateLimitFilter implements Filter{
         System.out.println( "req "+reqser.getRequestURI() );
         Integer count = this.rateLimitService.getCountByUrl( reqser.getRequestURI() );
         RateLimitEntity tmp = null;
-        if( count < 4){
+        if( count < LIMIT_RATE ){
             tmp = this.rateLimitService.save( reqser.getRequestURI() );
             fc.doFilter(reqser, resser); // di Proses
         } else {
