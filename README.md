@@ -1,29 +1,43 @@
 # qnp-test
 test di qnp
 
-run project 
+## run project 
+
+```bash
 ./mvnw spring-boot:run
 
-postmant terlampir di qnp.postman_collection.json
+mvnw.cmd spring-boot:run
+```
 
-1. code ada di package user 
-  - di controller UserController method nya list, add, del, get
+## Postman
+import qnp.postman_collection.json
 
-2. code ada di pacakage user dan post
-  - di controller UserController method nya init
-  - di controller PostController method nya init
+# Question answer
 
-3. code ada di package ratelimit
+## Create restful Api with CRUD
+  - the answer is in the UserController class in the findAllPage(), saveUser(), getUserById() and delUserById()
 
-ada api user/lemot hit api berikut 10 kali lebih
-curl http://localhost:8080/user/lemot &
+## Create an endpoint that fetch 2
+  - the answer is in the UserController class in the init()
+  - the answer is in the PostController class in the init()
 
-maka response lebih dari 10 akan tidak akan diproses dan di beri status 429
+## Add rate-limiter to those endpoint 
+  - the answer is in the RateLimitFilter 
 
-4. code ada di class SecurityConfig, AuthAuthenticationProvider, AuthController
-  localhost:8080/rest/auth/login 
-    email & password isi bebas masih di hardcode asal bisa login
-    setelah login dpt token
-    nnt token tadi akan di letakkan di Authorzation Bearer Token untuk request ke tiap endpoint
+### To Test rate-limit 
+  1. Request Api with background request. 
+  ```bash
+    curl http://localhost:8080/user/lemot &
+  ```
+  2. Make Request more then 10 times 
+  3. The response 11th will be 429
+  4. Noted this only on api /user/lemot. because I made a rate limit based on a queue with 10 quotas. If the request is still executed then the 11th request is rejected
 
-  validasi di Endpoint di config di SecurityConfig & di filter JwtAuthorizationFilter
+## Add JWT validation for those endpoints.
+  - the answer is in the class JwtAuthorizationFilter for check all request then class JwtUtil to claim data on jwttoken
+  
+### to Test Jwttoken
+  1. You need login to url /rest/auth/login to create token. 
+  2. After you get the token, add on Header Authentication Header
+  3. Set Authorzation Bearer Token do it to akses all endpoint
+  4. Noted username password can be filled in whatever, this is just a validation test for the endpoint
