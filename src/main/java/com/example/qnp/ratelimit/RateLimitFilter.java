@@ -16,7 +16,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @Component
 @Order(1)
-public class RateLimitFilter implements Filter{
+public class RateLimitFilter implements Filter {
 
     private static final int LIMIT_RATE = 10;
 
